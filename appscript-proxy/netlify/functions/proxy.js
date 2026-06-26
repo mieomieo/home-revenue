@@ -149,7 +149,7 @@
 
       return `
       <div style="margin-bottom:10px;">
-        <b>${index + 1}.</b> ✅
+        <b>${index + 1}.</b>
         <a href="${store.sheetUrl}" target="_blank" style="font-weight:bold;">
           ${r.name}
         </a>: 💰
