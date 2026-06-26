@@ -139,7 +139,8 @@
   const formattedTotalProfit = totalProfit.toLocaleString("vi-VN") + " ₫";
   const formattedTotalRevenue = totalRevenue.toLocaleString("vi-VN") + " ₫";
   const outputText = responses
-    .map((r) => {
+    .sort((a, b) => extractRevenue(b.text) - extractRevenue(a.text))
+    .map((r, index) => {
       const store = BASE_URLS.find((b) => b.name === r.name);
       const { doanhThu, hoaHong, lai } = extractParts(r.text);
 
@@ -148,15 +149,21 @@
 
       return `
       <div style="margin-bottom:10px;">
-        ✅ <a href="${store.sheetUrl}" target="_blank" style="font-weight:bold;">
+        <b>No.${index + 1}</b> ✅
+        <a href="${store.sheetUrl}" target="_blank" style="font-weight:bold;">
           ${r.name}
-        </a>: 💰 
-            Doanh thu:<span style="color:${color}; font-weight:bold;"> ${doanhThu} ₫ </span>
-            💸 <span">
-            Hoa hồng: ${hoaHong} ₫
-          </span>
-           💵 Lãi: <span style="color:#16a34a;">${lai} ₫
-          </span>
+        </a>: 💰
+        Doanh thu:
+        <span style="color:${color}; font-weight:bold;">
+          ${doanhThu} ₫
+        </span>
+
+        💸 Hoa hồng: ${hoaHong} ₫
+
+        💵 Lãi:
+        <span style="color:#16a34a;">
+          ${lai} ₫
+        </span>
       </div>
     `;
     })
