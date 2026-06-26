@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Revenue Homestay</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <p id="month_label">
+        Doanh thu tháng này (cập nhật tự động qua Google Apps Script)
+      </p>
+      <button id="run_button">Run Manual</button>
+      <div style="display: flex">
+        <p>Year:</p>
+        <p id="year_choose"></p>
+      </div>
+      <div
+        id="tab_layout"
+        style="display: flex; margin-bottom: 30px; flex-wrap: wrap; gap: 10px"
+      ></div>
+      <div class="iframe-wrapper">
+        <div id="loading" class="loading">
+          <div>⏳ Đang tải dữ liệu...</div>
+          <div class="spinner"></div>
+        </div>
+        <iframe id="reportFrame" title="Proxy content"></iframe>
+      </div>
+    </div>
+    <footer>© 2025 Homestay Revenue Dashboard</footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

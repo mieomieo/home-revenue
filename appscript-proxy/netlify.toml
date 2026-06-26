@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+  publish = "public"
+
+# Chỉ redirect API request, không redirect toàn bộ
+[[redirects]]
+  from = "/proxy"
+  to = "/.netlify/functions/proxy"
+  status = 200
